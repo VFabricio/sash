@@ -15,20 +15,18 @@ char* read_line()
 {
     char* buf = NULL;
     size_t size = 0;
-    while(true) {
-        int nread = getline(&buf, &size, stdin);
-        if (nread == -1) continue; //EOF, try again
-        if (nread < 0) {
-            if (errno == EINVAL) {
-                error_quit(INVALID_GETLINE,
-                    "FATAL ERROR: invalid arguments passed to 'getline'!");
-            }
-            if (errno == ENOMEM) {
-                error_quit(OOM_GETLINE,
-                    "FATAL ERROR: could not allocate memory while reading input!");
-            }
-            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unkown error!");
-        } else break;
+    int nread = getline(&buf, &size, stdin);
+    if (nread == -1) return NULL;
+    if (nread < 0) {
+        if (errno == EINVAL) {
+            error_quit(INVALID_GETLINE,
+                "FATAL ERROR: invalid arguments passed to 'getline'!");
+        }
+        if (errno == ENOMEM) {
+            error_quit(OOM_GETLINE,
+                "FATAL ERROR: could not allocate memory while reading input!");
+        }
+        error_quit(UNKNOWN_ERROR, "FATAL ERROR: unkown error!");
     }
     return buf;
 }
