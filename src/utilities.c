@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "utilities.h"
+#include "wrappers.h"
 
 void print_welcome_message()
 {
-    printf("Welcome to sash, the Super Awesome Shell");
+    print("Welcome to sash, the Super Awesome Shell");
 }
