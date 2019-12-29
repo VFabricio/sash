@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "error.h"
 #include "wrappers.h"
 
@@ -46,4 +47,14 @@ char* read_line()
         error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
     }
     return buf;
+}
+
+char* string_copy(const char* s)
+{
+    size_t size = strlen(s) + 1;
+    char* copy = alloc(size);
+    if (snprintf(copy, size, "%s", s) < 0) {
+        error_quit(BAD_SNPRINTF, "FATAL ERROR: snprintf failed!");
+    }
+    return copy;
 }
