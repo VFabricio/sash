@@ -4,6 +4,21 @@
 #include "error.h"
 #include "wrappers.h"
 
+void* alloc(size_t size) {
+    if (size == 0) {
+        error_quit(ZERO_SIZE_ALLOC, "FATAL ERROR: tried to allocate a zero size buffer!");
+    }
+    void* ptr = malloc(size);
+    if (ptr == NULL) {
+        if (errno == ENOMEM) {
+            error_quit(OOM_ALLOC, "FATAL ERROR: could not allocate memory!");
+        }
+        else {
+            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
+        }
+    }
+}
+
 void print(const char* s)
 {
     if (printf("%s", s) < 0) {
@@ -26,7 +41,7 @@ char* read_line()
             error_quit(OOM_GETLINE,
                 "FATAL ERROR: could not allocate memory while reading input!");
         }
-        error_quit(UNKNOWN_ERROR, "FATAL ERROR: unkown error!");
+        error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
     }
     return buf;
 }
