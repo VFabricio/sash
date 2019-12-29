@@ -49,7 +49,7 @@ char* read_line()
     return buf;
 }
 
-char* string_copy(const char* s)
+const char* string_copy(const char* s)
 {
     size_t size = strlen(s) + 1;
     char* copy = alloc(size);
