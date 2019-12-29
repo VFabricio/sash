@@ -1,5 +1,6 @@
 #include <errno.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "error.h"
 #include "wrappers.h"
@@ -17,6 +18,7 @@ void* alloc(size_t size) {
             error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
         }
     }
+    return ptr;
 }
 
 void print(const char* s)
