@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "utilities.h"
@@ -6,8 +7,10 @@
 int main()
 {
     print_welcome_message();
-    char* input = read_line();
-    if (input == NULL) {
-        return EXIT_SUCCESS;
+    while (true) {
+        char* input = read_line();
+        if (input == NULL) {
+            return EXIT_SUCCESS;
+        }
     }
 }
