@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include "lexer.h"
 
-
 bool is_builtin(tokens t);
 void run_builtin(tokens t);
 

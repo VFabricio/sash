@@ -2,13 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "builtins.h"
+#include "execute.h"
 #include "lexer.h"
 #include "utilities.h"
 #include "wrappers.h"
-
-void execute(tokens t) {
-    return;
-}
 
 int main()
 {

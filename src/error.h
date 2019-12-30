@@ -9,6 +9,9 @@
 #define OOM_ALLOC 6
 #define BAD_SNPRINTF 7
 #define NEGATIVE_LENGTH_SLICE 8
+#define MAX_THREADS_EXECUTE 9
+#define OOM_EXECUTE 10
+#define NO_FORK_EXECUTE 11
 
 void error_quit(int status, const char* msg);
 

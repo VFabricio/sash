@@ -22,7 +22,11 @@ tokens add_token(tokens t, char* s) {
     } else {
         new_tokens_list = t.tokens_list;
     }
-    new_tokens_list[t.n] = string_copy(s);
+    if (s == NULL) {
+        new_tokens_list[t.n] = NULL;
+    } else {
+        new_tokens_list[t.n] = string_copy(s);
+    }
     tokens new_t = {new_tokens_list, new_n, new_capacity};
     return new_t;
 }
@@ -43,5 +47,7 @@ tokens tokenize (const char* s) {
         }
     }
     t = add_token(t, slice(s, token_start, i));
+    // This may look weird, but it makes easier to call execv later.
+    t = add_token(t, NULL);
     return t;
 }
