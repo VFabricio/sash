@@ -42,6 +42,6 @@ tokens tokenize (const char* s) {
             t = add_token(t, slice(s, token_start, i + 1));
         }
     }
-    t = add_token(t, slice(s, token_start, i + 1));
+    t = add_token(t, slice(s, token_start, i));
     return t;
 }
