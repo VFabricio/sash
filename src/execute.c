@@ -29,6 +29,7 @@ void execute(tokens t) {
     {
         execvp(t.tokens_list[0], t.tokens_list);
         print("An error happened!\n");
+        exit(EXIT_FAILURE);
     }
 
     // TODO: add more detail here
