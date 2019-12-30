@@ -11,6 +11,7 @@ int main()
 {
     print_welcome_message();
     while (true) {
+        print_prompt();
         char* input = read_line();
         if (input == NULL) { //EOF
             return EXIT_SUCCESS;
