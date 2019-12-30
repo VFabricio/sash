@@ -8,6 +8,7 @@
 #define ZERO_SIZE_ALLOC 5
 #define OOM_ALLOC 6
 #define BAD_SNPRINTF 7
+#define NEGATIVE_LENGTH_SLICE 8
 
 void error_quit(int status, const char* msg);
 

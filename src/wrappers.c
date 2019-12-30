@@ -22,6 +22,22 @@ void* alloc(size_t size) {
     return ptr;
 }
 
+void* resize_alloc(void* ptr, size_t size) {
+    if (size == 0) {
+        error_quit(ZERO_SIZE_ALLOC, "FATAL ERROR: tried to reallocate a buffer to zero size!");
+    }
+    void* new_ptr = realloc(ptr, size);
+    if (new_ptr == NULL) {
+        if (errno == ENOMEM) {
+            error_quit(OOM_ALLOC, "FATAL ERROR: could not allocate memory when resizing a buffer!");
+        }
+        else {
+            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
+        }
+    }
+    return new_ptr;
+}
+
 void print(const char* s)
 {
     if (printf("%s", s) < 0) {
@@ -49,7 +65,7 @@ char* read_line()
     return buf;
 }
 
-const char* string_copy(const char* s)
+char* string_copy(const char* s)
 {
     size_t size = strlen(s) + 1;
     char* copy = alloc(size);

@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "lexer.h"
 #include "utilities.h"
 #include "wrappers.h"
 
@@ -12,5 +13,6 @@ int main()
         if (input == NULL) {
             return EXIT_SUCCESS;
         }
+        tokens t = tokenize(input);
     }
 }
