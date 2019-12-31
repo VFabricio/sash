@@ -23,6 +23,7 @@
 #define MAX_THREADS_EXECUTE 9
 #define OOM_EXECUTE 10
 #define NO_FORK_EXECUTE 11
+#define NO_COMMANDS_EXECUTE 12
 
 void error_quit(int status, const char* msg);
 

@@ -19,6 +19,10 @@
 #include "wrappers.h"
 
 void execute(tokens t) {
+    if (t.n == 0) {
+        error_quit(NO_COMMANDS_EXECUTE,
+            "FATAL ERROR: Tried to run execute with an empty command!");
+    }
     pid_t pid = fork();
     if (pid < 0) {
         if (errno == EAGAIN) {
