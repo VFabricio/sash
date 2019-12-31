@@ -27,7 +27,7 @@ void* alloc(size_t size) {
             error_quit(OOM_ALLOC, "FATAL ERROR: could not allocate memory!");
         }
         else {
-            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
+            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error when calling alloc!");
         }
     }
     return ptr;
@@ -43,7 +43,7 @@ void* resize_alloc(void* ptr, size_t size) {
             error_quit(OOM_ALLOC, "FATAL ERROR: could not allocate memory when resizing a buffer!");
         }
         else {
-            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
+            error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error when calling resize_alloc!");
         }
     }
     return new_ptr;
@@ -71,7 +71,7 @@ char* read_line()
             error_quit(OOM_GETLINE,
                 "FATAL ERROR: could not allocate memory while reading input!");
         }
-        error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error!");
+        error_quit(UNKNOWN_ERROR, "FATAL ERROR: unknown error when calling read_line!");
     }
     return buf;
 }
