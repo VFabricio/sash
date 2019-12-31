@@ -39,7 +39,9 @@ void execute(tokens t) {
     if (pid == 0) // we're on the child
     {
         execvp(t.tokens_list[0], t.tokens_list);
-        print("An error happened!\n");
+        print("An error has ocurred. Could not launch command ");
+        print(t.tokens_list[0]);
+        print(".\n");
         exit(EXIT_FAILURE);
     }
 
