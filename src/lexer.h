@@ -17,6 +17,7 @@
 #define INITIAL_CAPACITY 8
 
 typedef struct {
+    // This is supposed to be NULL terminated
     char** tokens_list;
     size_t n;
     size_t capacity;
