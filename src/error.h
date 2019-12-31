@@ -24,6 +24,8 @@
 #define OOM_EXECUTE 10
 #define NO_FORK_EXECUTE 11
 #define NO_COMMANDS_EXECUTE 12
+#define NO_CHILD_EXECUTE 13
+#define INVALID_EXECUTE 14
 
 void error_quit(int status, const char* msg);
 

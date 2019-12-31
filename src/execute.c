@@ -49,13 +49,23 @@ void execute(tokens t) {
         exit(EXIT_FAILURE);
     }
 
-    // TODO: add more detail here
     if (pid > 0) // we're on the parent
     {
         int status;
-        waitpid(pid, &status, 0);
-        do {
-            waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+        pid_t new_pid = waitpid(pid, &status, 0);
+        if (new_pid != pid) {
+            if (errno == ECHILD) {
+                error_quit(NO_CHILD_EXECUTE,
+                    "FATAL ERROR: execute is waiting for a process that is not its child or it does not have one!");
+            }
+            if (errno == EINVAL) {
+                error_quit(INVALID_EXECUTE,
+                    "FATAL ERROR: invalid arguments passed to waitpid in execute!");
+            }
+            if (errno != EINTR) {
+                error_quit(UNKNOWN_ERROR,
+                    "FATAL ERROR: an unknown error has happened in the execute function!");
+            }
+        }
     }
 }
