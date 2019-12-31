@@ -27,6 +27,7 @@
 #define NO_CHILD_EXECUTE 13
 #define INVALID_EXECUTE 14
 #define NULL_SLICE 15
+#define NULL_STRING_COPY 16
 
 void error_quit(int status, const char* msg);
 

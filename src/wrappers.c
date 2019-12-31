@@ -78,6 +78,10 @@ char* read_line()
 
 char* string_copy(const char* s)
 {
+    if (s == NULL) {
+        error_quit(NULL_STRING_COPY,
+            "FATAL ERROR: tried to call string copy with a null pointer!");
+    }
     size_t size = strlen(s) + 1;
     char* copy = alloc(size);
     if (snprintf(copy, size, "%s", s) < 0) {
