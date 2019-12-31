@@ -26,6 +26,10 @@ void print_welcome_message()
 
 char* slice(const char* s, size_t start, size_t end)
 {
+    if (s == NULL) {
+        error_quit(NULL_SLICE,
+            "FATAL ERROR: tried to compute a slice of a null pointer!");
+    }
     if (start > end) { 
         error_quit(NEGATIVE_LENGTH_SLICE,
             "FATAL ERROR: tried to compute a negative length string slice!");

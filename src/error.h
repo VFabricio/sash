@@ -26,6 +26,7 @@
 #define NO_COMMANDS_EXECUTE 12
 #define NO_CHILD_EXECUTE 13
 #define INVALID_EXECUTE 14
+#define NULL_SLICE 15
 
 void error_quit(int status, const char* msg);
 
