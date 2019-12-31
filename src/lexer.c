@@ -51,8 +51,7 @@ tokens tokenize (const char* s) {
         if(s[i] != ' ' && !reading_token) {
             reading_token = true;
             token_start = i;
-        }
-        if (s[i] == ' ' && reading_token) {
+        } else if (s[i] == ' ' && reading_token) {
             reading_token = false;
             t = add_token(t, slice(s, token_start, i + 1));
         }
