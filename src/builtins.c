@@ -9,10 +9,10 @@
 //
 //-----------------------------------------------------------------------------
 
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include "builtins.h"
-#include "wrappers.h"
 
 void builtin_exit(tokens t) {
     exit(EXIT_SUCCESS);
