@@ -20,3 +20,25 @@ For now, sash is *extremely* bare bones. The only builtin command so far is 'exi
 - Customizing the prompt
 
 Some of these may be added in the future.
+
+## Building instructions
+
+The recommended way of building sash is using make. If you don't have it installed on your machine you can probably do it with something like
+
+```
+apt install make
+```
+
+or the equivalent command on your distribution. Then, just run
+
+```
+make
+```
+
+in the root folder of the project. The sash binary will be generated on `bin/`.
+
+To clean the files generated during the build, including the object files on `obj/` and the binary itself, run
+
+```
+make clean
+```
