@@ -75,17 +75,3 @@ char* read_line()
     }
     return buf;
 }
-
-char* string_copy(const char* s)
-{
-    if (s == NULL) {
-        error_quit(NULL_STRING_COPY,
-            "FATAL ERROR: tried to call string copy with a null pointer!");
-    }
-    size_t size = strlen(s) + 1;
-    char* copy = alloc(size);
-    if (snprintf(copy, size, "%s", s) < 0) {
-        error_quit(BAD_SNPRINTF, "FATAL ERROR: snprintf failed!");
-    }
-    return copy;
-}

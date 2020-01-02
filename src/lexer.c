@@ -36,10 +36,18 @@ tokens add_token(tokens t, char* s) {
     if (s == NULL) {
         new_tokens_list[t.n] = NULL;
     } else {
-        new_tokens_list[t.n] = string_copy(s);
+        new_tokens_list[t.n] = s;
     }
     tokens new_t = {new_tokens_list, new_n, new_capacity};
     return new_t;
+}
+
+void free_tokens(tokens t)
+{
+    for(size_t i = 0; i < t.n; i++) {
+        free(t.tokens_list[i]);
+    }
+    free(t.tokens_list);
 }
 
 tokens tokenize (const char* s) {
@@ -56,6 +64,7 @@ tokens tokenize (const char* s) {
             t = add_token(t, slice(s, token_start, i + 1));
         }
     }
+    // Up to i, instead of i + 1, to omit the trailing newline
     t = add_token(t, slice(s, token_start, i));
     // This may look weird, but it makes easier to call execv later.
     t = add_token(t, NULL);

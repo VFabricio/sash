@@ -23,6 +23,8 @@ typedef struct {
     size_t capacity;
 } tokens;
 
+void free_tokens(tokens t);
+
 tokens tokenize (const char* s);
 
 #endif //LEXER_H
