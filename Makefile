@@ -17,7 +17,7 @@ SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
 CC = gcc
-CFLAGS = -Wall -pedantic
+CFLAGS = -Wall -Wextra -pedantic
 
 .PHONY: all clean
 all: $(OBJS)
